@@ -1,0 +1,71 @@
+name: Feature Request
+description: Suggest a new feature or enhancement
+labels: ["Type: Feature", "-Needs: Triage"]
+body:
+  - type: input
+    id: contact-phone
+    attributes:
+      label: Contact Phone
+      description: Optional phone number for follow-up
+      placeholder: "555-555-5555"
+    validations:
+      required: false
+
+  - type: dropdown
+    id: contact-method
+    attributes:
+      label: Preferred Contact Method
+      options:
+        - E-mail
+        - Phone
+    validations:
+      required: true
+
+  - type: input
+    id: system
+    attributes:
+      label: System/Application
+      description: What system or application is this for?
+      placeholder: "e.g., Web portal, Mobile app, Internal tools"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Feature Description
+      description: Describe the feature you'd like
+      placeholder: "What would you like to be able to do?"
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem it Solves
+      description: What problem does this feature solve?
+      placeholder: "Currently I have to... and it would be better if..."
+    validations:
+      required: false
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: Have you considered any workarounds or alternatives?
+      placeholder: "I've tried using... but it doesn't work well because..."
+    validations:
+      required: false
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: How important is this feature to you?
+      options:
+        - Nice to have
+        - Would improve workflow
+        - Important for productivity
+        - Critical for business needs
+    validations:
+      required: true

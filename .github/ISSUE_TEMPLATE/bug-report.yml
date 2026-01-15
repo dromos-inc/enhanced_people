@@ -1,0 +1,94 @@
+name: Bug Report
+description: Report a software or web bug
+labels: ["Type: Bug", "-Needs: Triage"]
+body:
+  - type: input
+    id: contact-phone
+    attributes:
+      label: Contact Phone
+      description: Optional phone number for follow-up
+      placeholder: "555-555-5555"
+    validations:
+      required: false
+
+  - type: dropdown
+    id: contact-method
+    attributes:
+      label: Preferred Contact Method
+      options:
+        - E-mail
+        - Phone
+    validations:
+      required: true
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      description: How severe is this bug?
+      options:
+        - Low - Minor inconvenience
+        - Medium - Impacts productivity
+        - High - Blocking work
+        - Critical - System down
+    validations:
+      required: true
+
+  - type: input
+    id: system
+    attributes:
+      label: System/Application
+      description: What system or application is affected?
+      placeholder: "e.g., Web portal, Mobile app, API"
+    validations:
+      required: true
+
+  - type: input
+    id: browser-os
+    attributes:
+      label: Browser/OS
+      description: What browser and operating system are you using?
+      placeholder: "e.g., Chrome 120 on Windows 11"
+    validations:
+      required: false
+
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: Describe the bug in detail
+      placeholder: "Describe what you expected vs what actually happened"
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      description: How can we reproduce this issue?
+      placeholder: |
+        1. Go to...
+        2. Click on...
+        3. See error...
+    validations:
+      required: false
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log output or screenshots
+      description: Please copy and paste any relevant log output or describe screenshots
+      render: shell
+    validations:
+      required: false
+
+  - type: dropdown
+    id: urgent
+    attributes:
+      label: Urgent?
+      description: Does this need immediate attention?
+      options:
+        - "No"
+        - "Yes"
+    validations:
+      required: true

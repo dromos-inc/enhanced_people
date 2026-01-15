@@ -1,0 +1,75 @@
+name: Support Request
+description: Get help or ask a question
+labels: ["Type: Support", "-Needs: Triage"]
+body:
+  - type: input
+    id: contact-phone
+    attributes:
+      label: Contact Phone
+      description: Optional phone number for follow-up
+      placeholder: "555-555-5555"
+    validations:
+      required: false
+
+  - type: dropdown
+    id: contact-method
+    attributes:
+      label: Preferred Contact Method
+      options:
+        - E-mail
+        - Phone
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      description: What type of support do you need?
+      options:
+        - How-to question
+        - Account/access issue
+        - Configuration help
+        - Training request
+        - General inquiry
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: system
+    attributes:
+      label: System/Application
+      description: What system or application is this about?
+      placeholder: "e.g., Web portal, Email, Network, QuickBooks"
+    validations:
+      required: false
+
+  - type: textarea
+    id: description
+    attributes:
+      label: How can we help?
+      description: Describe what you need help with
+      placeholder: "Please provide as much detail as possible"
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional Context
+      description: Any other information that might be helpful
+      placeholder: "Screenshots, error messages, relevant details..."
+    validations:
+      required: false
+
+  - type: dropdown
+    id: urgent
+    attributes:
+      label: Urgent?
+      description: Does this need immediate attention?
+      options:
+        - "No"
+        - "Yes"
+    validations:
+      required: true
