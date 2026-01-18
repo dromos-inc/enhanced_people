@@ -1,6 +1,6 @@
 name: Bug Report
 description: Report a software or web bug
-labels: ["Type: Bug", "-Needs: Triage"]
+labels: ["it: bug", "-Needs: Triage"]
 body:
   - type: dropdown
     id: severity

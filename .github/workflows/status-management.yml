@@ -14,16 +14,13 @@ permissions:
   pull-requests: read
 
 env:
-  STATUS_RECEIVED: "status: received"
-  STATUS_INVESTIGATING: "status: investigating"
-  STATUS_IMPLEMENTING: "status: implementing"
-  STATUS_COMPLETE: "status: complete"
-  STATUS_BLOCKED: "status: blocked"
-  STATUS_UNBLOCKED: "status: no longer blocked"
-  STATUS_CANCELED: "status: canceled"
-  STATUS_CANCELED_DUPLICATE: "status: canceled - duplicate"
-  STATUS_CANCELED_CANT_REPRO: "status: canceled - can not reproduce"
-  STATUS_CANCELED_NOT_PLANNED: "status: canceled - not planned"
+  STATUS_RECEIVED: "st: received"
+  STATUS_INVESTIGATING: "st: investigating"
+  STATUS_IMPLEMENTING: "st: implementing"
+  STATUS_COMPLETE: "st: complete"
+  STATUS_BLOCKED: "st: blocked"
+  STATUS_UNBLOCKED: "st: no longer blocked"
+  STATUS_CANCELED: "st: canceled"
 
 jobs:
   new-issue:
@@ -80,7 +77,7 @@ jobs:
           done
 
           # If no cancel status already set, add "complete"
-          if ! echo "$LABELS" | grep -q "status: canceled"; then
+          if ! echo "$LABELS" | grep -q "st: canceled"; then
             gh issue edit ${{ github.event.issue.number }} --add-label "$STATUS_COMPLETE"
           fi
         env:
@@ -98,7 +95,7 @@ jobs:
           LABELS=$(gh issue view ${{ github.event.issue.number }} --json labels -q '.labels[].name')
 
           # Remove closed statuses
-          for label in "$STATUS_COMPLETE" "$STATUS_CANCELED" "$STATUS_CANCELED_DUPLICATE" "$STATUS_CANCELED_CANT_REPRO" "$STATUS_CANCELED_NOT_PLANNED"; do
+          for label in "$STATUS_COMPLETE" "$STATUS_CANCELED"; do
             if echo "$LABELS" | grep -qF "$label"; then
               gh issue edit ${{ github.event.issue.number }} --remove-label "$label" 2>/dev/null || true
             fi
@@ -122,9 +119,9 @@ jobs:
 
           # Check if added label is a status label
           case "$ADDED_LABEL" in
-            "status: received"|"status: investigating"|"status: implementing"|"status: complete"|"status: blocked"|"status: no longer blocked"|"status: canceled"|"status: canceled - duplicate"|"status: canceled - can not reproduce"|"status: canceled - not planned")
+            "st: received"|"st: investigating"|"st: implementing"|"st: complete"|"st: blocked"|"st: no longer blocked"|"st: canceled")
               # It's a status label - remove other status labels
-              ALL_STATUS_LABELS="status: received,status: investigating,status: implementing,status: complete,status: blocked,status: no longer blocked,status: canceled,status: canceled - duplicate,status: canceled - can not reproduce,status: canceled - not planned"
+              ALL_STATUS_LABELS="st: received,st: investigating,st: implementing,st: complete,st: blocked,st: no longer blocked,st: canceled"
 
               for label in $(echo "$ALL_STATUS_LABELS" | tr ',' '\n'); do
                 if [ "$label" != "$ADDED_LABEL" ]; then
@@ -134,7 +131,7 @@ jobs:
 
               # If a close-appropriate label was added, close the issue
               case "$ADDED_LABEL" in
-                "status: complete"|"status: canceled"|"status: canceled - duplicate"|"status: canceled - can not reproduce"|"status: canceled - not planned")
+                "st: complete"|"st: canceled")
                   # Check if issue is open
                   STATE=$(gh issue view "$ISSUE_NUM" --json state -q '.state')
                   if [ "$STATE" = "OPEN" ]; then

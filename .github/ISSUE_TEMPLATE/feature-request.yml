@@ -1,6 +1,6 @@
 name: Feature Request
 description: Suggest a new feature or enhancement
-labels: ["Type: Feature", "-Needs: Triage"]
+labels: ["it: enhancement", "-Needs: Triage"]
 body:
   - type: input
     id: application
