@@ -1,0 +1,23 @@
+issue_templates:
+  mode: "ALL"
+
+github_actions:
+  mode: "ALL"
+
+status_labels: true
+
+linters:
+  mode: "AUTO"
+
+pre_commit:
+  enabled: true
+
+pr_tests:
+  enabled: true
+
+test_infrastructure:
+  prompt: true
+
+copilot_review:
+  enabled: true
+
