@@ -1,0 +1,55 @@
+# Sync configuration for this repository
+# Documentation: https://github.com/dromos-inc/ai-workspace/blob/main/tools/dromos_sync_repo_settings/README.md
+# Variables: {{REPO_NAME}}, {{ORG_NAME}}, {{REPO_FULL_NAME}} are replaced when syncing
+
+# Master gitignore sync - ensures common entries (.DS_Store, .env, etc.) are present
+gitignore: true
+
+issue_templates:
+  mode: "NONE"  # ALL, NONE, SELECTED
+  # include:  # only used with SELECTED
+    # Software project templates:
+    # - software/bug_report.yaml
+    # - software/feature_request.yaml
+    # Support/IT templates:
+    # - support/support_request.yaml
+    # - support/hardware_issue.yaml
+    # - support/change_request.yaml
+    # - support/incident.yaml
+    # - support/maintenance.yaml
+    # - support/new_system.yaml
+
+github_actions:
+  mode: "NONE"  # ALL, NONE, SELECTED
+  # include:  # only used with SELECTED
+    # - status_management.yaml
+
+status_labels: false  # true / false
+
+# Linter configuration sync
+linters:
+  mode: "NONE"  # AUTO, ALL, NONE, SELECTED
+  # AUTO: Detect file types and sync appropriate linter configs
+  # include:  # only used with SELECTED
+    # - markdownlint.json    # -> .markdownlint.json
+    # - eslintrc.cjs         # -> .eslintrc.cjs
+    # - prettierrc.json      # -> .prettierrc.json
+    # - ruff.toml            # -> ruff.toml
+
+# Pre-commit hook generation
+pre_commit:
+  enabled: false  # Generate .pre-commit-config.yaml based on detected file types
+
+# PR tests workflow generation
+pr_tests:
+  enabled: false  # Generate pr_tests.yaml GitHub Action based on detected file types
+
+# Test infrastructure prompts
+test_infrastructure:
+  prompt: false  # Create issue if code exists but no test directories found
+
+# Copilot PR review integration
+# copilot_review:
+#   enabled: false  # Enable labels for Copilot PR review workflow
+
+# docs_url: "https://github.com/{{ORG_NAME}}/{{REPO_NAME}}/wiki"  # shown in issue template chooser

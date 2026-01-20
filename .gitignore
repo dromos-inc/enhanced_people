@@ -1,1 +1,10 @@
 __pycache__/**
+
+# Managed by sync-repo-settings (do not remove this section)
+*.env
+.DS_Store
+.claude/settings.local.json
+.env
+.env.*
+@eaDir/
+\#recycle/
