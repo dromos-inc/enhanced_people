@@ -1,6 +1,7 @@
 name: Bug Report
 description: Report a software or web bug
-labels: ["it: bug", "-Needs: Triage"]
+labels: ["st: new", "needs: triage"]
+type: "bug"
 body:
   - type: dropdown
     id: severity
@@ -14,35 +15,30 @@ body:
         - Critical - System down
     validations:
       required: true
-
   - type: input
     id: application
     attributes:
       label: Application
-      description: What application is affected? (pre-filled with this repo, edit if different)
+      description: What application is affected?
       placeholder: "e.g., Web portal, Mobile app, API"
-      value: "enhanced-people"
     validations:
       required: true
-
   - type: input
-    id: browser-os
+    id: environment
     attributes:
-      label: Browser/OS
-      description: What browser and operating system are you using?
-      placeholder: "e.g., Chrome 120 on Windows 11"
+      label: Environment
+      description: Browser, OS, or system details
+      placeholder: "e.g., Chrome 120 on Windows 11, Ubuntu 22.04"
     validations:
       required: false
-
   - type: textarea
     id: description
     attributes:
       label: What happened?
-      description: Describe the bug in detail
-      placeholder: "Describe what you expected vs what actually happened"
+      description: Describe the bug - what you expected vs what actually happened
+      placeholder: "Expected: ...\nActual: ..."
     validations:
       required: true
-
   - type: textarea
     id: steps
     attributes:
@@ -54,23 +50,11 @@ body:
         3. See error...
     validations:
       required: false
-
   - type: textarea
     id: logs
     attributes:
-      label: Relevant log output or screenshots
-      description: Please copy and paste any relevant log output or describe screenshots
+      label: Logs or Screenshots
+      description: Paste relevant log output or describe screenshots
       render: shell
     validations:
       required: false
-
-  - type: dropdown
-    id: urgent
-    attributes:
-      label: Urgent?
-      description: Does this need immediate attention?
-      options:
-        - "No"
-        - "Yes"
-    validations:
-      required: true

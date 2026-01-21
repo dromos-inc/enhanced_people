@@ -1,17 +1,16 @@
 name: Feature Request
 description: Suggest a new feature or enhancement
-labels: ["it: enhancement", "-Needs: Triage"]
+labels: ["st: new", "needs: triage"]
+type: "enhancement"
 body:
   - type: input
     id: application
     attributes:
       label: Application
-      description: What application is this for? (pre-filled with this repo, edit if different)
+      description: What application is this for?
       placeholder: "e.g., Web portal, Mobile app, Internal tools"
-      value: "enhanced-people"
     validations:
       required: true
-
   - type: textarea
     id: description
     attributes:
@@ -20,7 +19,6 @@ body:
       placeholder: "What would you like to be able to do?"
     validations:
       required: true
-
   - type: textarea
     id: problem
     attributes:
@@ -29,7 +27,6 @@ body:
       placeholder: "Currently I have to... and it would be better if..."
     validations:
       required: false
-
   - type: textarea
     id: alternatives
     attributes:
@@ -38,7 +35,6 @@ body:
       placeholder: "I've tried using... but it doesn't work well because..."
     validations:
       required: false
-
   - type: dropdown
     id: priority
     attributes:

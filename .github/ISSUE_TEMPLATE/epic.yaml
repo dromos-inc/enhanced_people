@@ -1,0 +1,59 @@
+name: Epic
+description: Large body of work containing multiple sub-issues
+labels: ["st: new"]
+type: "epic"
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: High-level description of this epic
+      placeholder: "What is this epic about?"
+    validations:
+      required: true
+  - type: textarea
+    id: goals
+    attributes:
+      label: Goals
+      description: What are the success criteria for this epic?
+      placeholder: |
+        - Goal 1
+        - Goal 2
+        - Goal 3
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+      description: What's in scope and out of scope?
+      placeholder: |
+        **In scope:**
+        - ...
+        **Out of scope:**
+        - ...
+    validations:
+      required: false
+  - type: textarea
+    id: sub-issues
+    attributes:
+      label: Planned Sub-issues
+      description: List the issues that will be created under this epic (use task list format)
+      placeholder: |
+        - [ ] Sub-issue 1
+        - [ ] Sub-issue 2
+        - [ ] Sub-issue 3
+    validations:
+      required: false
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: Overall priority of this epic
+      options:
+        - "p: low"
+        - "p: normal"
+        - "p: high"
+        - "p: critical"
+    validations:
+      required: true
